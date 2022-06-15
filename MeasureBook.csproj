@@ -52,4 +52,18 @@
 	  <None Remove="Resources\Raw\clientData.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.0" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.0" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
+	  <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\ClientPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

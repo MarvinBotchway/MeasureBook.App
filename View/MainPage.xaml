@@ -2,39 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MeasureBook.MainPage"
-             xmlns:model="clr-namespace:MeasureBook.Model">
+             xmlns:model="clr-namespace:MeasureBook.Model"
+             Title="Clients">
 
-    <CollectionView>
-        <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type model:ClientModel}">
-                
-                <model:ClientModel
-                    Name="Marvin" />
-                <model:ClientModel
-                    Name="Marvin" />
-                <model:ClientModel
-                    Name="Marvin" />
-                
-            </x:Array>
-            
-        </CollectionView.ItemsSource>
-        
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:ClientModel">
-                <Label VerticalOptions="Center">
-                    <Label.Text>
-                        <MultiBinding StringFormat="{}{0} | {1}" >
-                            <Binding Path="Name" />
-                            <Binding Path="Id" />
-                        </MultiBinding>
-                    </Label.Text>
-                </Label>
-                
-                
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnItemAdded" Text="+">
+            <!--<ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android,UWP" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>-->
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ListView
+            x:Name="listView"
+            Margin="20"
+            ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout
+                            Margin="20,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal">
+                        <Label HorizontalOptions="StartAndExpand" Text="{Binding Name}" />
+                        
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-			 
-    
- 
+        </ListView.ItemTemplate>
+    </ListView>
+
+
 </ContentPage>

@@ -8,6 +8,7 @@ namespace MeasureBook.Model
 {
     public class ClientModel
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
     }
